@@ -62,7 +62,7 @@ switch (command) {
           "------------------------",
           "Artist: " + data.artists[0].name,
           "\nSong: " + input,
-          "\nSpotify Link: " + data.artists[0].external_url.spotify,
+          "\nSpotify Link: " + data.artists[0].external_urls.spotify,
           "\nAlbum: " + data.name,
           "------------------------"
         ].join("\n\n");
