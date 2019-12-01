@@ -17,10 +17,12 @@ let command = process.argv[2];
 let input = process.argv[3];
 
 //==Four different commands this can take==//
-//31) concert-this
+//1) concert-this
 //2) spotify=this-song
 //3) movie-this
 //4) do-what-it-says
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 switch (command) {
   case "concert-this":
@@ -46,12 +48,34 @@ switch (command) {
         console.log(error);
       });
 
-    console.log("concert command test");
     break;
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
+
   case "spotify-this-song":
-    console.log("spotify command test");
+    spotify
+      .search({ type: "track", query: input })
+      .then(function(response) {
+        let data = response.tracks.items[0].album;
+
+        let songData = [
+          "------------------------",
+          "Artist: " + data.artists[0].name,
+          "\nSong: " + input,
+          "\nSpotify Link: " + data.artists[0].external_url.spotify,
+          "\nAlbum: " + data.name,
+          "------------------------"
+        ].join("\n\n");
+
+        console.log(songData);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
     break;
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
 
   case "movie-this":
     console.log("/////// Movie Info Below ///////");
@@ -69,10 +93,38 @@ switch (command) {
         console.log(response.data.Actors);
       });
 
-    console.log("movie command test");
     break;
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
+
   case "do-what-it-says":
-    console.log("filesystem command test");
+    fs.readFile("random.txt", "UTF-8", function(error, data) {
+      if (error) {
+        console.log("Error: " + error);
+      } else {
+        let choice = data.split(",");
+        console.log(choice[1]);
+        //==Run that through spotify==//
+        spotify
+          .search({ type: "track", query: choice[1] })
+          .then(function(response) {
+            let data = response.tracks.items[0].album;
+
+            let songData = [
+              "------------------------",
+              "Artist: " + data.artists[0].name,
+              "\nSong: " + choice[0],
+              "\nSpotify Link: " + data.artists[0].external_url.spotify,
+              "\nAlbum: " + data.name,
+              "------------------------"
+            ].join("\n\n");
+            console.log(songData);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+    });
+
     break;
 }
