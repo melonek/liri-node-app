@@ -14,7 +14,8 @@ moment().format();
 //==remember to install the npm packages in order for bot to work properly==//
 
 let command = process.argv[2];
-let input = process.argv[3];
+let input = process.argv.slice(3).join(" ");
+// let input = process.argv[3];
 
 //==Four different commands this can take==//
 //1) concert-this
@@ -109,12 +110,11 @@ switch (command) {
           .search({ type: "track", query: choice[1] })
           .then(function(response) {
             let data = response.tracks.items[0].album;
-
             let songData = [
               "------------------------",
               "Artist: " + data.artists[0].name,
               "\nSong: " + choice[0],
-              "\nSpotify Link: " + data.artists[0].external_url.spotify,
+              "\nSpotify Link: " + data.artists[0].external_urls.spotify,
               "\nAlbum: " + data.name,
               "------------------------"
             ].join("\n\n");
