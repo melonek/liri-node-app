@@ -30,6 +30,10 @@ npm packages: require, axios, spotify,
 
 //=How to Run LIRI-Bot==//
 
+Command node liri will display the programs welcome sentence: "This is loaded"
+
+![Alt text](https://github.com/melonek/liri-node-app/blob/master/screenshots/liri-welcome-page.png?raw=true "Optional title")
+
 1. node liri.js concert-this <name of the band>
 
 This simple command will let the user research whether his band is touring or not. If it is, then the user will be given
@@ -44,11 +48,15 @@ Date of the concert.
 
 
 2: node liri.js spotify-this-song <song name here> 
+  
+ 
 
 This will show the following information about the song in your terminal/bash window * Artist(s) * 
 The song's name * A preview link of the song from Spotify * The album that the song is from.
 If no song is provided then the program will default to
 "The Sign" by Ace of Base
+
+![Alt text](https://github.com/melonek/liri-node-app/blob/master/screenshots/liri-spotify-this%20song.png?raw=true "Optional title")
 
 3: node liri.js movie-this <movie name here>
 
@@ -64,8 +72,13 @@ Actors in the movie.
 
 Please note: If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
+![Alt text](https://github.com/melonek/liri-node-app/blob/master/screenshots/liri-movie-this.png?raw=true "Optional title")
+
+
 4: node liri.js do-what-it-says
 
 This will output the command placed in random.txt file
+
+![Alt text](https://github.com/melonek/liri-node-app/blob/master/screenshots/liri-do-what-it-says.png?raw=true "Optional title")
 
 =======================================================================================
