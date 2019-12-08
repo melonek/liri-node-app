@@ -40,6 +40,9 @@ Location.
 Venue.
 Date of the concert.
 
+![Alt text](https://github.com/melonek/liri-node-app/blob/master/screenshots/liri-concert-this.png?raw=true "Optional title")
+
+
 2: node liri.js spotify-this-song <song name here> 
 
 This will show the following information about the song in your terminal/bash window * Artist(s) * 
